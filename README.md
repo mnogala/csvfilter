@@ -5,6 +5,7 @@ Mariusz Nogala
 1. PLIKI PROJEKTU
 
 Pliki źródłowe:
+
 mn_alg.cpp
 mn_csv.cpp
 mn_defs.cpp
@@ -46,6 +47,7 @@ Rozmiar pliku: 6 098 997 309 bajtów
 Liczba kolumn w wierszach: 11
 
 Zastosowany warunek filtrowania:
+
 const char* Filter = "((k1 > 600 and k2 = 446) or k3 = 999) or (k5 = 2*k6 + 1 and k8 >= k9)";
 
 Liczba wierszy wynikowych: 20 069
