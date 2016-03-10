@@ -1,0 +1,1 @@
+cl /MT /O2 /EHsc /Fe"test.exe" test.cpp mn_csv.cpp mn_alg.cpp mn_fastbuf.cpp mn_vect.cpp mn_reader.cpp mn_defs.cpp mn_int64.cpp

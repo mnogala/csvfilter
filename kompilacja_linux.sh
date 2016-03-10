@@ -1,0 +1,1 @@
+g++ -pthread -O2 -o test.out test.cpp mn_csv.cpp mn_alg.cpp mn_fastbuf.cpp mn_vect.cpp mn_reader.cpp mn_defs.cpp mn_int64.cpp
