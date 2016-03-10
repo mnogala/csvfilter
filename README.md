@@ -6,7 +6,7 @@ Mariusz Nogala
 
 #1. PLIKI PROJEKTU
 
-Pliki źródłowe:
+#Pliki źródłowe:
 
 mn_alg.cpp
 
