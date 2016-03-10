@@ -36,6 +36,7 @@ mn_reader.h
 
 mn_vect.h
 
+
 Pliki do programu testowego:
 
 create_sample_csv.cpp (opcjonalnie)
@@ -43,6 +44,7 @@ create_sample_csv.cpp (opcjonalnie)
 mn_czas.h
 
 test.cpp
+
 
 Pliki wsadowe do kompilacji:
 
@@ -74,11 +76,13 @@ Rozmiar pliku: 6 098 997 309 bajtów
 
 Liczba kolumn w wierszach: 11
 
+
 Zastosowany warunek filtrowania:
 
 const char* Filter = "((k1 > 600 and k2 = 446) or k3 = 999) or (k5 = 2*k6 + 1 and k8 >= k9)";
 
 Liczba wierszy wynikowych: 20 069
+
 
 Czasy przetwarzania:
 
