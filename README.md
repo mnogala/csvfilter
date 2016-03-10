@@ -1,51 +1,81 @@
 Filtrowanie plików CSV
+
 Mariusz Nogala
+
 21 luty 2016
 
 1. PLIKI PROJEKTU
 
 Pliki źródłowe:
+
 mn_alg.cpp
+
 mn_csv.cpp
+
 mn_defs.cpp
+
 mn_fastbuf.cpp
+
 mn_int64.cpp
+
 mn_reader.cpp
+
 mn_vect.cpp
+
 mn_alg.h
+
 mn_csv.h
+
 mn_defs.h
+
 mn_fastbuf.h
+
 mn_int64.h
+
 mn_reader.h
+
 mn_vect.h
 
 Pliki do programu testowego:
+
 create_sample_csv.cpp (opcjonalnie)
+
 mn_czas.h
+
 test.cpp
 
 Pliki wsadowe do kompilacji:
+
 kompilacja_msvc.bat
+
 kompilacja_gnu.bat
+
 kompilacja_borland.bat
+
 kompilacja_linux.sh
 
 2. TEST
 
 Przykładowy test został wykonany na komputerze DELL z 20 procesorami:
+
 Target: x86_64-redhat-linux
+
 Thread model: posix
+
 gcc version 4.4.6 20110731 (Red Hat 4.4.6-3) (GCC)
 
 Przykładowy plik "input.csv" (około 6 GB) został wygenerowany za pomocą
+
 programu create_sample_csv.cpp.
 
 Liczba wierszy źródłowych: 90 000 000 
+
 Rozmiar pliku: 6 098 997 309 bajtów
+
 Liczba kolumn w wierszach: 11
 
 Zastosowany warunek filtrowania:
+
 const char* Filter = "((k1 > 600 and k2 = 446) or k3 = 999) or (k5 = 2*k6 + 1 and k8 >= k9)";
 
 Liczba wierszy wynikowych: 20 069
@@ -53,18 +83,28 @@ Liczba wierszy wynikowych: 20 069
 Czasy przetwarzania:
 
 1 wątek:   279 sek
+
 2 wątki:   168 sek
+
 3 wątki:   119 sek
+
 4 wątki:    99 sek
+
 8 wątków:   64 sek
+
 12 wątków:  55 sek
+
 16 wątków:  51 sek
+
 20 wątków:  48 sek
+
 
 3. INTERFEJS PROGRAMISTYCZNY
 
 Jedyna wyjściowa funkcja modułu to csvfilter.
+
 Posiada ona 12 parametrów wywołania.
+
 Zwraca 1 gdy jest sukces, lub kod błędu ( <= 0 ).
 
 int csvfilter(const char* InputName, const char* ResultName,
@@ -139,13 +179,19 @@ UWAGA: Nazwy kolumn (wybranych lub wszystkich) mogą być umieszczane w znakach 
 4) Warunek logiczny filtrowania może używać następujących operatorów:
 
 alternatywa: ||, OR, or, Or, oR
+
 koniunkcja: &&, AND, and, And, ...
+
 porównanie: >, <, >=, <=, =, == (to samo co "=") !=, <> (to samo co "!=")
+
 arytmetyczne: +, -, *, /
+
 słowo kluczowe: NULL
 
 5) Algorytm obsługuje wartość NULL. Może ona występować w pliku CSV, gdy po przecinku zamiast wartości liczbowej jest od razu (lub po białych znakach) kolejny przecinek, lub znak nowej linii lub słowo kluczowe NULL.
+
 UWAGA: Algorytm traktuje też jako NULL każdy inny tekst w kolumnie, którego nie da się przetłumaczyć na liczbę. Wartość NULL jest też generowana w przypadku błędu (np. dzielenie przez 0).
+
 Ponadto algorytm pozwala stosować wyrażenia: "kolumna = NULL", "kolumna != NULL". Zwracają one takie same wartości jak odpowiednie SQL-owe wyrażenia: "IS NULL", "IS NOT NULL".
 
 6) Liczba kolumn w wierszach nie musi być stała. Jeśli dany wiersz ma mniej kolumn, wówczas zmienna reprezentująca brakującą kolumnę będzie w warunku filtrowania miała wartość NULL. Warunek filtrowania może jednak w takim przypadku również zwracać wartość logiczną 1 dla takiego wiersza (w przypadku alternatywy).
@@ -157,10 +203,16 @@ Cała arytmetyka (+,-,*,/) wykonywana jest również na typie int64 (moduł: mn_
 8) Wieloplatformowość zapewnia moduł mn_defs.cpp.
 
 Windows: 
+
 wątki: _beginthread, sekcje krytyczne
+
 typ my_int64: __int64
-Linux: 
+
+
+Linux:
+
 wątki: biblioteka pthread, muteksy
+
 typ my_int64: long long
 
 5. MECHANIZMY ALGORYTMU
