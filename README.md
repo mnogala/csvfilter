@@ -64,9 +64,7 @@ Thread model: posix
 
 gcc version 4.4.6 20110731 (Red Hat 4.4.6-3) (GCC)
 
-#Przykładowy plik "input.csv" (około 6 GB) został wygenerowany za pomocą
-
-programu create_sample_csv.cpp.
+Przykładowy plik "input.csv" (około 6 GB) został wygenerowany za pomocą programu create_sample_csv.cpp.
 
 Liczba wierszy źródłowych: 90 000 000 
 
