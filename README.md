@@ -36,8 +36,7 @@ mn_reader.h
 
 mn_vect.h
 
-
-Pliki do programu testowego:
+#Pliki do programu testowego:
 
 create_sample_csv.cpp (opcjonalnie)
 
@@ -45,8 +44,7 @@ mn_czas.h
 
 test.cpp
 
-
-Pliki wsadowe do kompilacji:
+#Pliki wsadowe do kompilacji:
 
 kompilacja_msvc.bat
 
@@ -66,7 +64,7 @@ Thread model: posix
 
 gcc version 4.4.6 20110731 (Red Hat 4.4.6-3) (GCC)
 
-Przykładowy plik "input.csv" (około 6 GB) został wygenerowany za pomocą
+#Przykładowy plik "input.csv" (około 6 GB) został wygenerowany za pomocą
 
 programu create_sample_csv.cpp.
 
@@ -76,7 +74,6 @@ Rozmiar pliku: 6 098 997 309 bajtów
 
 Liczba kolumn w wierszach: 11
 
-
 Zastosowany warunek filtrowania:
 
 const char* Filter = "((k1 > 600 and k2 = 446) or k3 = 999) or (k5 = 2*k6 + 1 and k8 >= k9)";
@@ -84,7 +81,7 @@ const char* Filter = "((k1 > 600 and k2 = 446) or k3 = 999) or (k5 = 2*k6 + 1 an
 Liczba wierszy wynikowych: 20 069
 
 
-Czasy przetwarzania:
+#Czasy przetwarzania:
 
 1 wątek:   279 sek
 
