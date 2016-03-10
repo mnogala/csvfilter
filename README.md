@@ -138,7 +138,6 @@ wątki: biblioteka pthread, muteksy
 typ my_int64: long long
 
 5. MECHANIZMY ALGORYTMU
-
 UWAGA: Kluczowym modułem programu jest plik mn_alg.cpp. Znajdują się tu algorytmy kompilacji i wykonania warunku filtrowania. Warunek jest kompilowany 1 raz na samym początku, a następnie wykonywany dla każdego wiersza źródłowego. Funkcja wykonania warunku jest REENTRANT, czyli wykonuje się niezależnie w każdym wątku, bez wzajemnego blokowania. Dlatego nie można w niej wywoływać funkcji, które zwykle nie są REENTRANT (np. funkcje dynamicznego przydziału pamięci).
 
 1) Wersja jednowątkowa.
